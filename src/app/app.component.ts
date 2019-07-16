@@ -1,12 +1,29 @@
 import {Component} from "@angular/core";
-import { trigger, state, style} from "@angular/animations";
+import { trigger, state, style, transition, animate, keyframes} from "@angular/animations";
 @Component({
     selector: 'app',
     animations:[
         trigger('signal', [
+            state('void', style({
+                'transform':'translateY(-100%)'
+            })),
             state('go', style({
-                'background-color':'green'
-            }))
+                'background-color':'green',
+                'height':'100px'
+            })),
+            state('stop', style({
+                'background-color':'red',
+                'height':'50px'
+            })),
+            transition('void <=> *', animate(1000, keyframes([
+                style({'transform':'scale(0)'}),
+                style({'transform':'scale(.9)'}),
+                style({'transform':'scale(.1)'}),
+                style({'transform':'scale(.9)'}),
+                style({'transform':'scale(.5)'}),
+                style({'transform':'scale(1)'})
+            ]))),
+            transition('go <=> stop', animate('2s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)'))
         ])
     ],
     styles:[`
@@ -18,11 +35,31 @@ import { trigger, state, style} from "@angular/animations";
 `],
     template: `
 <div
-    [@signal]="'go'"
-    class="traffic-light">
-    
+    [@signal]="signal"
+    class="traffic-light"
+    *ngIf="isHere"
+    >
+
 </div>
+<button (click)="onGoClick()">Go</button>
+<button (click)="onStopClick()">Stop</button>
+<hr>
+<button (click)="onToggleClick()">Toggle</button>
 `
 })
 export class AppComponent {
+    signal;
+    isHere = false;
+
+    onGoClick(){
+        this.signal = 'go';
+    }
+
+    onStopClick(){
+        this.signal = 'stop';
+    }
+
+    onToggleClick(){
+        this.isHere = !this.isHere;
+    }
 }
