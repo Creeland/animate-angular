@@ -6,6 +6,9 @@ import { trigger, state, style} from "@angular/animations";
         trigger('signal', [
             state('go', style({
                 'background-color':'green'
+            })),
+            state('stop', style({
+                'background-color':'red'
             }))
         ])
     ],
@@ -18,11 +21,17 @@ import { trigger, state, style} from "@angular/animations";
 `],
     template: `
 <div
-    [@signal]="'go'"
+    [@signal]="signal"
     class="traffic-light">
-    
+
 </div>
+<button (click)="onGoClick()">Go</button>
 `
 })
 export class AppComponent {
+    signal = 'stop';
+
+    onGoClick(){
+        this.signal = 'go';
+    }
 }
