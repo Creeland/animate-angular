@@ -7,6 +7,7 @@ All notable changes to "Animate Angular Web Applications" will be documented in 
 ### Added
 - Used Angular CLI tool to generate app
 - Added CHANGELOG.md
+- Added 'tslib#^1.9.0'
 
 ### Changed
 - Updated '@angular/animations#4.2.2->~8.1.1'
@@ -17,8 +18,8 @@ All notable changes to "Animate Angular Web Applications" will be documented in 
 - Updated '@angular/platform-browser#4.2.2->~8.1.1',
 - Updated '@angular/platform-browser-dynamic#4.2.2->~8.1.1',
 - Updated '@angular/router#4.2.2->~8.1.1',
-- Updated 'rxjs#6.0.0-alpha.0->^6.4.0',
-- Updated 'zone.js#^0.8.12->^1.9.0',
+- Updated 'rxjs#6.0.0-alpha.0->~6.4.0',
+- Updated 'zone.js#^0.8.12->~0.9.1',
 
 
 ### Removed
