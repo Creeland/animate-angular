@@ -10,6 +10,7 @@ All notable changes to "Animate Angular Web Applications" will be documented in 
 - Added 'tslib#^1.9.0'
 
 ### Changed
+- Converted project to yarn workspace
 - Updated '@angular/animations#4.2.2->~8.1.1'
 - Updated '@angular/common#4.2.2->~8.1.1',
 - Updated '@angular/compiler#4.2.2->~8.1.1',
